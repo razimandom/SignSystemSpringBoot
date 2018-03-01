@@ -55,7 +55,7 @@
 <hr/>
 
 <h2>Generate Key</h2>
-<form method="post" action="/save">
+<form method="post" action="/genkey/generate">
     <input type="hidden" name="id" value=""/>
             Enter 6 pin: <input type="text" name="passphrase"/>
 
@@ -72,7 +72,6 @@
                 <th>Public Key</th>
                 <th>Salt</th>
                 <th>Vector</th>
-                <th>Action</th>
             </tr>
             <c:forEach var = "list" items = "${lists}">
                 <tr>
@@ -81,11 +80,6 @@
                     <td>${list.publickey_data}</td>
                     <td>${list.salt_data}</td>
                     <td>${list.vector_data}</td>
-                    <td>
-                        <a href="/view/${list.id}">View</a>
-                        <a href="/delete/${list.id}">Delete</a>
-                        <a href="/edit/${list.id}">Edit</a>
-                    </td>
                 </tr>
             </c:forEach>
         </table>

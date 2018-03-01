@@ -68,6 +68,7 @@ verification can be easily implement after understand SpringBoot architecture.</
                         <a href="/view/${list.id}">View</a>
                         <a href="/delete/${list.id}">Delete</a>
                         <a href="/edit/${list.id}">Edit</a>
+                        <a href="/sign/${list.id}">Sign</a>
                     </td>
                 </tr>
             </c:forEach>

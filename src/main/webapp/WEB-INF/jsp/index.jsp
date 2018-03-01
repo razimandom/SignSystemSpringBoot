@@ -1,7 +1,15 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
-<head><title>SpringBoot</title>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>SpringBoot</title>
     <style>
         html {
             font-family: arial, sans-serif;
@@ -20,30 +28,67 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        .container-footer {
+             padding: 30px 50px;
+             margin-top: 50px;
+             background-image: linear-gradient(to top, #2c2929 0%, #313130 100%);
+             color: #FFF;
+         }
+
+        .container-header {
+            padding: 30px 50px;
+            margin-bottom: 50px;
+            background-image: linear-gradient(to top, #2c2929 0%, #313130 100%);
+            color: #FFF;
+        }
+
     </style>
 </head>
+
+<header class="container-header text-center bg-black">Prepared by Raziman for interview purposes</header>
+
 <body>
 
-<h1>Demonstration of Sign System using SpringBoot</h1>
-<hr/>
-<p><strong>Purpose:</strong> <br>Convert digital signature system from Liferay framework to Spring boot framework.<br>
-    Target to implement GET, POST, PUT and DELETE. <br> Other function like generating MD5, encryption, decryption, digital signing,
-verification can be easily implement after understand SpringBoot architecture.</p>
-<hr/>
-<p>Actual digital signature system snapshot: <a href="http://gosign.razimandom.com/"><strong>View here</strong></a></p>
-<hr/>
-<h2>
-    Menu:
-    <a href="/">Upload Document</a> -
-    <a href="/signdoc/">Sign Document</a> -
-    <a href="/genkey/">Generate Key</a>
-</h2>
-<br>
-<hr/>
+<div class="container gallery-container">
 
-<table><tr>
-    <td>
-        <h2>List of Submitted Request</h2>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Standard Chartered Interview</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Upload Document</a></li>
+                <li><a href="/signdoc/">Sign Document</a></li>
+                <li ><a href="/genkey/">Generate Key</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <h3 class="text-center">Demonstration of Sign System using SpringBoot</h3>
+    <div class="alert alert-success">
+        <p><strong>Purpose:</strong> <br>Convert digital signature system from Liferay framework to Spring boot framework.<br>
+            Target to implement GET, POST, PUT and DELETE. <br> Other function like generating MD5, encryption, decryption, digital signing,
+            verification can be easily implement after understand SpringBoot architecture.</p>
+        <p>Actual digital signature system snapshot: <a href="http://gosign.razimandom.com/"><strong>View here</strong></a></p>
+    </div>
+
+    <div class="alert alert-info">
+        <p><strong>Task:</strong> <br>
+            Create data: Done<br>
+            View data: Done<br>
+            Edit: Done<br>
+            Delete data: Done<br>
+            Generate Key: Done (Public & Private) <br>
+            Generate MD5: Done <br>
+            Sign document: In progress <br>
+            Verify document: In progress <br>
+            Apply bootstrap 4: Done
+        </p>
+    </div>
+
+        <h3>List of Submitted Request</h3>
         <table>
             <tr>
                 <th>Req ID</th>
@@ -73,48 +118,50 @@ verification can be easily implement after understand SpringBoot architecture.</
                 </tr>
             </c:forEach>
         </table>
-    </td>
-    <td>
-        <h2>Submit Request</h2>
-        <form method="post" action="/save">
-            <input type="hidden" name="id" value=""/>
-            <table>
 
-                <tr><td>
-                    Requester Name:
-                </td><td>
-                    <input type="text" name="req_name"/>
-                </td></tr>
+    <h3>Submit Request</h3>
+    <form method="post" action="/save">
+        <input type="hidden" name="id" value=""/>
+        <table>
 
-                <tr><td>
-                    Signer Email:
-                </td><td>
-                    <input type="text" name="sign_email" >
-                </td></tr>
+            <tr><td>
+                Requester Name:
+            </td><td>
+                <input type="text" name="req_name"/>
+            </td></tr>
 
-                <tr><td>
-                    Type:
-                </td><td>
-                    <input type="text" name="doc_type" >
-                </td></tr>
+            <tr><td>
+                Signer Email:
+            </td><td>
+                <input type="text" name="sign_email" >
+            </td></tr>
 
-                <tr><td>
-                    Deadline:
-                </td><td>
-                    <input type="text" name="doc_deadline" >
-                </td></tr>
-                <tr><td>
-                    Doc MD5:
-                </td><td>
-                    Auto-generated
-                </td></tr>
-            </table>
+            <tr><td>
+                Type:
+            </td><td>
+                <input type="text" name="doc_type" >
+            </td></tr>
 
-            <br><br>
-            <input type="submit" value="Submit">
-        </form>
-    </td>
-</tr></table>
+            <tr><td>
+                Deadline:
+            </td><td>
+                <input type="text" name="doc_deadline" >
+            </td></tr>
+            <tr><td>
+                Doc MD5 (Fingerprint):
+            </td><td>
+                Auto-generated
+            </td></tr>
+        </table>
+        <br>
+        <input class="btn btn-success" type="submit" value="Submit Request">
+    </form>
+
+</div>
 
 </body>
+
+<footer class="container-footer text-center bg-black">Prepared by Raziman for interview purposes</footer>
+
+
 </html>

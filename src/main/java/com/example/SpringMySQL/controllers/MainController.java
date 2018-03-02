@@ -56,6 +56,10 @@ public class MainController {
         return mv;
     }
 
+    /*
+    Add request function
+     */
+
     @RequestMapping( value = "/save", method = RequestMethod.POST)
     public ModelAndView doSave(
             @RequestParam("id") String id,
@@ -136,9 +140,7 @@ public class MainController {
             @RequestParam("passphrase") String passphrase
     ) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 
-
-
-        ModelAndView mv = new ModelAndView("redirect:/genkey/");
+      ModelAndView mv = new ModelAndView("redirect:/genkey/");
         KeyModel keys = new KeyModel();;
 
         // Generate Key Function

@@ -110,10 +110,21 @@
                     <td>${list.doc_md5}</td>
                     <td>${list.doc_status}</td>
                     <td>
-                        <a href="/view/${list.id}">View</a>
-                        <a href="/delete/${list.id}">Delete</a>
-                        <a href="/edit/${list.id}">Edit</a>
-                        <a href="/sign/${list.id}">Sign</a>
+
+                        <a href="/view/${list.id}" data-toggle="tooltip" title="View request"><span
+                                class="glyphicon glyphicon-folder-open text-primary"></span></a>
+                        &nbsp;
+                        <a href="/edit/${list.id}" data-toggle="tooltip" title="Edit request"><span
+                            class="glyphicon glyphicon-wrench text-primary"></span></a>
+                        &nbsp;
+                        <a href="/delete/${list.id}" data-toggle="tooltip" title="Delete"
+                           onclick="return confirm('Are you sure you want to delete this request?')"><span
+                                class="glyphicon glyphicon-remove text-danger"></span></a>
+                        &nbsp;
+                        <a href="/sign/${list.id}" data-toggle="modal" data-target="#myModal" title="Sign request"><span
+                                class="glyphicon glyphicon-pencil text-success"></span></a>
+
+
                     </td>
                 </tr>
             </c:forEach>
@@ -157,6 +168,42 @@
         <input class="btn btn-success" type="submit" value="Submit Request">
     </form>
 
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Sign Document</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="post" action="/sign">
+                <table>
+                    <tr>
+                        <td>
+                            Enter 6 pin: <input type="text" name="passphrase"/>
+                        </td>
+                        <td>
+                            <input class="btn btn-success" type="submit" value="Sign">
+                        </td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 </body>
